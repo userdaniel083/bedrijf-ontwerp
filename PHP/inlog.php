@@ -103,9 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col mb-2 mt-4">
                 <p class="text-center" 
                   style="font-weight: 600; color: navy;"
-                  ><a href="./register.php"
-                        style="text-decoration: none;">Maak  Account Aan</a> OF <a href="./resetpassword.php"
-                        style="text-decoration: none;"> Wachtwoord Resetten</a></p>
+                ><a href="./registeer.php"
+                    style="text-decoration: none;">Maak Account Aan</a></p>
             </div>
         </form>
     </div>
