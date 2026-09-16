@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $checkEmailStmt = $conn->prepare("SELECT email FROM userdata WHERE email = ?");
+    $checkEmailStmt = $conn->prepare("SELECT email FROM gebruiker WHERE email = ?");
     $checkEmailStmt->bind_param("s", $email);
     $checkEmailStmt->execute();
     $checkEmailStmt->store_result();
@@ -20,11 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $toastClass = "#007bff"; 
     } else {
         // Prepare and bind
-        $stmt = $conn->prepare("INSERT INTO userdata (username, email, password) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO gebruiker (gebruikersnaam, email, wachtwoord) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $username, $email, $hashedPassword);
 
         if ($stmt->execute()) {
-            $message = "Account created successfully";
+            $message = "Account successfully created";
             $toastClass = "#28a745"; // Success
         } else {
             $message = "Error: " . $stmt->error;
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="mb-2 mt-4">
                 <p class="text-center" style="font-weight: 600; 
-                color: navy;">I have an Account <a href="./login.php"
+                color: navy;">I have an Account <a href="./inlog.php"
                         style="text-decoration: none;">Login</a></p>
             </div>
         </form>

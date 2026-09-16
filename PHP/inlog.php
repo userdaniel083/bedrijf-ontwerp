@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Prepare and execute
-    $stmt = $conn->prepare("SELECT password FROM userdata WHERE email = ?");
+    $stmt = $conn->prepare("SELECT wachtwoord FROM gebruiker WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->fetch();
 
         if (password_verify($password, $db_password)) {
-            $message = "Login gelukt";
+            $message = "Login successful";
             $toastClass = "bg-success";
             // Start the session and redirect to the dashboard or home page
             session_start();
@@ -27,11 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: dashboard.php");
             exit();
         } else {
-            $message = "niet goed wachtwoord";
+            $message = "Incorrect password";
             $toastClass = "bg-danger";
         }
     } else {
-        $message = "Email niet gevonden";
+        $message = "Email not found";
         $toastClass = "bg-warning";
     }
 
