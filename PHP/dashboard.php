@@ -36,6 +36,9 @@ if (!isset($_SESSION['email'])) {
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav m-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./plannen.php">Rit plannen</a>
+                    </li>
                 </ul>
                 <form class="d-flex my-2 my-lg-0">
                     <a href="./logout.php" class="btn btn-light my-2 my-sm-0"
