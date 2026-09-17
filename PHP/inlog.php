@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <!-- Top Navbar -->
+    <!-- Nivigatie balk -->
     <nav class="navbar navbar-dark custom-navbar px-4 py-3 shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
@@ -93,7 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
 
     <div class="main-container container">
-        <!-- Toastmelding indien aanwezig -->
         <?php if ($message): ?>
             <div class="toast align-items-center text-white <?php echo $toastClass; ?> border-0 mb-4" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
@@ -105,13 +104,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php endif; ?>
 
-        <!-- Pagina Titel -->
         <div class="text-center mb-4">
             <h2 style="font-weight: 700; color: #1e293b;">Inlogpagina</h2>
             <p class="text-muted" style="font-size: 0.95rem;">Log in op uw Veel Auto account</p>
         </div>
 
-        <!-- Inlog Formulier Kaart -->
+        <!-- Formulier voor het inloggen -->
         <form action="" method="post" class="bg-white p-5 rounded-3 border"
             style="width: 100%; max-width: 450px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
             

@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <!-- Top Navbar -->
+    <!-- Navigatie balk -->
     <nav class="navbar navbar-dark custom-navbar px-4 py-3 shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
@@ -92,7 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
 
     <div class="main-container container">
-        <!-- Toast melding -->
         <?php if ($message): ?>
             <div class="toast align-items-center text-white <?php echo $toastClass; ?> border-0 mb-4" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
@@ -104,13 +103,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php endif; ?>
 
-        <!-- Pagina Titel -->
         <div class="text-center mb-4">
             <h2 style="font-weight: 700; color: #1e293b;">Account aanmaken</h2>
             <p class="text-muted" style="font-size: 0.95rem;">Maak een nieuw Veel Auto account aan</p>
         </div>
 
-        <!-- Registratie Formulier Kaart -->
+        <!-- Registratie formulier -->
         <form method="post" class="bg-white p-5 rounded-3 border"
             style="width: 100%; max-width: 450px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
             
@@ -129,7 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" name="password" id="password" class="form-control py-2" placeholder="••••••••" required>
             </div>
 
-            <!-- Optioneel veld voor visuele overeenkomst met de afbeelding (niet verplicht voor backend, maar matcht layout) -->
             <div class="mb-4">
                 <label for="confirm_password" class="form-label" style="font-weight: 500; color: #334155; font-size: 0.9rem;">Wachtwoord bevestigen</label>
                 <input type="password" id="confirm_password" class="form-control py-2" placeholder="••••••••" required>
