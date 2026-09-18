@@ -1,0 +1,274 @@
+:root {
+	--navy: #1f326d;
+	--navy-dark: #172858;
+	--orange: #f9a91b;
+	--page: #f1f3f8;
+	--text: #15213a;
+	--muted: #65708b;
+	--pink: #de3180;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+
+	background: var(--page);
+	color: var(--text);
+	font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.site-shell {
+	width: 100%;
+	max-width: none;
+	min-height: 100vh;
+	margin: 0;
+	background: var(--page);
+}
+
+.topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 48px;
+	padding: 4px 10px 4px 7px;
+	background: var(--navy);
+}
+
+.brand,
+.sidebar-brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #fff;
+}
+
+.brand-mark {
+	display: inline-grid;
+	width: 33px;
+	height: 33px;
+	place-items: center;
+	border-radius: 8px;
+	background: var(--orange);
+	font-size: 18px;
+}
+
+.login-button {
+	padding: 7px 20px;
+	border-radius: 8px;
+	background: var(--orange);
+	color: #17213d;
+	font-size: 12px;
+	font-weight: 700;
+	transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.login-button:hover,
+.login-button:focus-visible {
+	background: #ffc044;
+	transform: translateY(-1px);
+}
+
+.page-layout {
+	display: grid;
+	grid-template-columns: 220px 1fr;
+	min-height: calc(100vh - 89px);
+}
+
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	padding: 27px 10px 27px;
+	background: var(--navy);
+	color: #fff;
+}
+
+.sidebar-brand {
+	padding: 0 8px;
+	margin-bottom: 34px;
+}
+
+.side-navigation {
+	display: grid;
+	gap: 6px;
+}
+
+.nav-link {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 11px 15px;
+	border-radius: 10px;
+	color: #dbe1f1;
+	font-size: 13px;
+	transition: background-color 160ms ease, color 160ms ease;
+}
+
+.nav-link span {
+	width: 14px;
+	color: #f6a51b;
+	text-align: center;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.active {
+	background: var(--orange);
+	color: #17213d;
+}
+
+.nav-link.active span,
+.nav-link:hover span,
+.nav-link:focus-visible span {
+	color: #17213d;
+}
+
+.copyright {
+	margin: auto 0 0;
+	padding: 0 22px;
+	color: #aeb8d3;
+	font-size: 11px;
+}
+
+.main-content {
+	padding: 34px 36px 70px;
+	background: var(--page);
+}
+
+.hero {
+	position: relative;
+	overflow: hidden;
+	height: 230px;
+	border-radius: 11px;
+	background: var(--navy-dark);
+}
+
+.hero::after {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgb(23 40 88 / 88%) 0%, rgb(23 40 88 / 35%) 65%, rgb(23 40 88 / 10%) 100%);
+	content: "";
+}
+
+.hero img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 58%;
+	opacity: .78;
+}
+
+.hero-overlay {
+	position: absolute;
+	z-index: 1;
+	left: 18px;
+	bottom: 18px;
+	color: #fff;
+}
+
+.hero h1,
+.hero p {
+	margin: 0;
+}
+
+.hero h1 {
+	font-size: 19px;
+	letter-spacing: .1px;
+}
+
+.hero p {
+	margin-top: 7px;
+	font-size: 13px;
+}
+
+.welcome {
+	max-width: 650px;
+	margin-top: 23px;
+}
+
+.welcome h2 {
+	margin: 0 0 9px;
+	font-size: 22px;
+}
+
+.welcome p {
+	margin: 0;
+	color: var(--muted);
+	font-size: 13px;
+	line-height: 1.65;
+}
+
+.contact-highlight {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	max-width: 610px;
+	margin-top: 22px;
+	padding: 15px 17px;
+	border-radius: 9px;
+	background: #e9efff;
+	color: #566681;
+	font-size: 12px;
+}
+
+.contact-highlight strong,
+.contact-highlight span {
+	display: block;
+}
+
+.contact-highlight strong {
+	margin-bottom: 3px;
+	color: var(--navy);
+	font-size: 13px;
+}
+
+.contact-icon {
+	color: var(--pink);
+	font-size: 27px;
+	transform: rotate(-18deg);
+}
+
+.footer {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 25px;
+	padding: 5px 54px 5px 10px;
+	border-top: 1px solid #e2e5ec;
+	background: #fff;
+	color: #9ba5bc;
+	font-size: 10px;
+	text-align: center;
+}
+
+.footer-item span {
+	color: var(--pink);
+}
+
+.help-button {
+	position: absolute;
+	right: 2px;
+	bottom: -1px;
+	width: 31px;
+	height: 31px;
+	border: 1px solid #e1e4ea;
+	border-radius: 50%;
+	background: #fff;
+	color: #68738b;
+	font-size: 16px;
+	box-shadow: 0 2px 5px rgb(21 33 58 / 12%);
+}
