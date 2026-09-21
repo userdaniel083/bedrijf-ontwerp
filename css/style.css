@@ -258,17 +258,3 @@ a {
 .footer-item span {
 	color: var(--pink);
 }
-
-.help-button {
-	position: absolute;
-	right: 2px;
-	bottom: -1px;
-	width: 31px;
-	height: 31px;
-	border: 1px solid #e1e4ea;
-	border-radius: 50%;
-	background: #fff;
-	color: #68738b;
-	font-size: 16px;
-	box-shadow: 0 2px 5px rgb(21 33 58 / 12%);
-}
