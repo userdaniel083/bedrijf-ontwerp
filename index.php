@@ -64,7 +64,6 @@
 			<span class="footer-item"><span aria-hidden="true">☎</span> XXX - XXX XX XX</span>
 			<span class="footer-item"><span aria-hidden="true">✉</span> XXXX@XXXXXXX.nl</span>
 			<span class="footer-item"><span aria-hidden="true">●</span> XXXXXXXXXX X, XXXXXXXXXX</span>
-			<button class="help-button" type="button" aria-label="Help">?</button>
 		</footer>
 	</div>
 </body>
