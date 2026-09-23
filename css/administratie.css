@@ -1,0 +1,193 @@
+/* Reset & Basis */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background: #ffffff;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-box {
+    background: #ffc107;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #111;
+}
+
+.badge-admin {
+    background: #e0e7ff;
+    color: #4f46e5;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.workspace-label {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.back-btn {
+    font-size: 14px;
+    color: #4b5563;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.back-btn:hover {
+    background: #f3f4f6;
+}
+
+/* Layout */
+.app-layout {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    padding: 24px 16px;
+}
+
+.nav-heading {
+    font-size: 11px;
+    font-weight: 700;
+    color: #9ca3af;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    padding-left: 12px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: #f3f4f6;
+}
+
+.nav-link.active {
+    background: #1e1b4b;
+    color: #ffffff;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 32px 40px;
+}
+
+.page-title-area {
+    margin-bottom: 24px;
+}
+
+.page-title-area h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.page-title-area p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Tabel Card */
+.table-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.rit-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.rit-tabel th {
+    background: #1e1b4b;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 16px 20px;
+}
+
+.rit-tabel td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.rit-tabel tr:last-child td {
+    border-bottom: none;
+}
+
+/* Skeleton loader effect */
+.skeleton-line {
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    width: 80%;
+}

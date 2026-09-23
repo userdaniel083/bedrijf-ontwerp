@@ -111,7 +111,7 @@ for ($driverNumber = 1; $driverNumber <= 12; $driverNumber++) {
 		<aside class="sidebar">
 			<p class="sidebar-title">Navigatie</p>
 			<a class="nav-link active" href="chaffeur.php">👥 Chauffeur toewijzen</a>
-			<a class="nav-link" href="admin.php">📋 Administratie</a>
+			<a class="nav-link" href="administratie.php">📋 Administratie</a>
 		</aside>
 
 		<main>
