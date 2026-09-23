@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Start the session and redirect to the dashboard or home page
             session_start();
             $_SESSION['email'] = $email;
-            header("Location: dashboard.php");
+            header("Location: ../index.php");
             exit();
         } else {
             $message = "Incorrect password";
