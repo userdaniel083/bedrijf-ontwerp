@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <header class="topbar">
         <div class="brand">
-            <span class="brand-mark">🚗</span>
+            <span class="brand-mark">🚕</span>
             <span>Veel Auto</span>
         </div>
         <div>
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <aside class="sidebar">
             <div class="sidebar-brand">
-                <span class="sidebar-logo-icon">🚗</span>
+                <span class="sidebar-logo-icon">🚕</span>
                 <span>Veel Auto</span>
             </div>
 
