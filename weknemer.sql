@@ -8,12 +8,14 @@ INSERT INTO gebruiker (
 )
 VALUES (
 	'admin@taxi.nl',
-	'Admin',
+	'taxi_admin',
+    -- Password is: password
 	'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi',
 	'Admin'
 )
 ON DUPLICATE KEY UPDATE
-	gebruikersnaam = 'Admin',
+	gebruikersnaam = 'taxi_admin',
+	wachtwoord = VALUES(wachtwoord),
 	rol = 'Admin';
 
 

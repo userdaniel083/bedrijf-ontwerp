@@ -5,17 +5,17 @@ $message = "";
 $toastClass = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
+    $login = $_POST['email'];
     $password = $_POST['password'];
 
     // Prepare and execute
-    $stmt = $conn->prepare("SELECT wachtwoord FROM gebruiker WHERE email = ?");
-    $stmt->bind_param("s", $email);
+    $stmt = $conn->prepare("SELECT wachtwoord, email FROM gebruiker WHERE email = ? OR gebruikersnaam = ?");
+    $stmt->bind_param("ss", $login, $login);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($db_password);
+        $stmt->bind_result($db_password, $accountEmail);
         $stmt->fetch();
 
         if (password_verify($password, $db_password)) {
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $toastClass = "bg-success";
             // Start the session and redirect to the dashboard or home page
             session_start();
-            $_SESSION['email'] = $email;
+            $_SESSION['email'] = $accountEmail;
             header("Location: dashboard.php");
             exit();
         } else {
@@ -114,8 +114,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             style="width: 100%; max-width: 450px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
             
             <div class="mb-3">
-                <label for="email" class="form-label" style="font-weight: 500; color: #334155; font-size: 0.9rem;">Gebruikersnaam</label>
-                <input type="text" name="email" id="email" class="form-control py-2" placeholder="u@voorbeeld.nl" required>
+                <label for="email" class="form-label" style="font-weight: 500; color: #334155; font-size: 0.9rem;">E-mailadres of gebruikersnaam</label>
+                <input type="text" name="email" id="email" class="form-control py-2" placeholder="admin@taxi.nl of taxi_admin" required>
             </div>
             
             <div class="mb-4">
