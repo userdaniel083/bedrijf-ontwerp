@@ -10,7 +10,6 @@ if (!isset($_SESSION['email'])) {
 $rit_id = isset($_GET['rit_id']) ? (int)$_GET['rit_id'] : null;
 $message = "";
 
-// Toewijzen van de rit verwerken
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['assign_driver'])) {
     $post_rit_id = (int)$_POST['rit_id'];
     $chauffeur_id = (int)$_POST['chauffeur_id'];
@@ -31,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['assign_driver'])) {
     }
 }
 
-// Alleen accounts ophalen met rol = 'Chauffeur'
+// Haalt alleen gebruikers op met de rol chauffeur
 $sql = "SELECT g.ID, g.gebruikersnaam, g.email, cs.is_aanwezig 
         FROM gebruiker g
         LEFT JOIN chauffeurs_status cs ON g.ID = cs.chauffeur_id
@@ -108,11 +107,11 @@ if ($result && $result->num_rows > 0) {
         <main>
             <?php if ($rit_id): ?>
                 <div class="notice-bar">
-                    🚕 Je bent momenteel een chauffeur aan het kiezen voor <strong>Rit #<?= htmlspecialchars($rit_id) ?></strong>
+                    Je bent momenteel een chauffeur aan het kiezen voor <strong>Rit #<?= htmlspecialchars($rit_id) ?></strong>
                 </div>
             <?php else: ?>
                 <div class="warning-bar">
-                    ⚠️ Er is geen specifieke rit geselecteerd. Ga naar de <a href="administratie.php">Administratie</a> en klik op "Toewijzen" bij een rit.
+                    Er is geen specifieke rit geselecteerd. Ga naar de <a href="administratie.php">Administratie</a> en klik op "Toewijzen" bij een rit.
                 </div>
             <?php endif; ?>
 
