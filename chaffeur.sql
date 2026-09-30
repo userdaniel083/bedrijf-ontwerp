@@ -16,3 +16,6 @@ ON DUPLICATE KEY UPDATE
 	gebruikersnaam = VALUES(gebruikersnaam),
 	wachtwoord = VALUES(wachtwoord),
 	rol = VALUES(rol);
+
+ALTER TABLE chauffeurs_status
+ADD UNIQUE (chauffeur_id);
