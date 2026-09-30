@@ -10,6 +10,29 @@ if (!isset($_SESSION['email'])) {
 $rit_id = isset($_GET['rit_id']) ? (int)$_GET['rit_id'] : null;
 $message = "";
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['switch_status'])) {
+    if (($_SESSION['rol'] ?? '') !== 'Admin') {
+        http_response_code(403);
+        exit('Geen toegang');
+    }
+
+    $chauffeur_id = (int)($_POST['chauffeur_id'] ?? 0);
+    $is_aanwezig = (int)($_POST['is_aanwezig'] ?? -1);
+
+    if ($chauffeur_id > 0 && in_array($is_aanwezig, [0, 1], true)) {
+        $stmt = $conn->prepare(
+            "INSERT INTO chauffeurs_status (chauffeur_id, is_aanwezig)
+             SELECT ID, ? FROM gebruiker WHERE ID = ? AND rol = 'Chauffeur'
+             ON DUPLICATE KEY UPDATE is_aanwezig = VALUES(is_aanwezig)"
+        );
+        $stmt->bind_param("ii", $is_aanwezig, $chauffeur_id);
+        $stmt->execute();
+    }
+
+    header('Location: chaffeur.php');
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['assign_driver'])) {
     $post_rit_id = (int)$_POST['rit_id'];
     $chauffeur_id = (int)$_POST['chauffeur_id'];
@@ -132,6 +155,11 @@ if ($result && $result->num_rows > 0) {
                             <div class="driver-fallback" hidden aria-hidden="true">👨‍✈️</div>
                             <h2><?= htmlspecialchars($driver['name']); ?></h2>
                             <p class="driver-status"><?= htmlspecialchars($driver['status']); ?></p>
+                            <form method="POST" action="chaffeur.php">
+                                <input type="hidden" name="chauffeur_id" value="<?= (int)$driver['id'] ?>">
+                                <input type="hidden" name="is_aanwezig" value="0">
+                                <button class="send-button" type="submit" name="switch_status">Markeer afwezig</button>
+                            </form>
 
                             <?php if ($rit_id): ?>
                                 <form method="POST" action="chaffeur.php?rit_id=<?= $rit_id ?>">
@@ -166,6 +194,11 @@ if ($result && $result->num_rows > 0) {
                             <div class="driver-fallback" hidden aria-hidden="true">👨‍✈️</div>
                             <h2><?= htmlspecialchars($driver['name']); ?></h2>
                             <p class="driver-status"><?= htmlspecialchars($driver['status']); ?></p>
+                            <form method="POST" action="chaffeur.php">
+                                <input type="hidden" name="chauffeur_id" value="<?= (int)$driver['id'] ?>">
+                                <input type="hidden" name="is_aanwezig" value="1">
+                                <button class="send-button" type="submit" name="switch_status">Markeer aanwezig</button>
+                            </form>
                         </article>
                     <?php endforeach; ?>
                 <?php else: ?>
